@@ -1,0 +1,164 @@
+:root {
+    --main-color: #FF9800;
+    --main-transition: 0.3s;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+}
+/* Start Settings Box */
+.settings-box {
+    position: fixed;
+    left: -230px;
+    top: 0;
+    background-color: rgb(255 255 255 / 95%);
+    width: 230px;
+    z-index: 1000;
+    min-height: 100vh;
+    transition: var(--main-transition);
+    -webkit-transition: var(--main-transition);
+    -moz-transition: var(--main-transition);
+    -ms-transition: var(--main-transition);
+    -o-transition: var(--main-transition);
+}
+.settings-box.open {
+    left: 0;
+}
+.settings-box .toggle-settings {
+    position: absolute;
+    right: 0;
+    top: 100px;
+    background-color: rgb(255 255 255 / 95%);
+    text-align: center;
+    right: -30px;
+    cursor: pointer;
+}
+.settings-box .toggle-settings .sett-icon {
+    width: 30px;
+    padding: 8px 0;
+}
+.settings-box .settings-container .option-box {
+    padding: 20px;
+}
+.settings-box .settings-container .option-box h4 {
+    margin: 0;
+    color: #666;
+}
+.settings-box .settings-container .option-box .colors-list {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+}
+.settings-box .settings-container .option-box .colors-list li {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: #333;
+    opacity: .5;
+    cursor: pointer;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+.settings-box .settings-container .option-box .colors-list li.active {
+    opacity: 1;
+}
+.settings-box .settings-container .option-box .colors-list li:first-child {
+    background-color: #FF9800;
+}
+.settings-box .settings-container .option-box .colors-list li:nth-child(2) {
+    background-color: #3f51b5;
+}
+.settings-box .settings-container .option-box .colors-list li:nth-child(3) {
+    background-color: #009688;
+}
+.settings-box .settings-container .option-box .colors-list li:nth-child(4) {
+    background-color: #ffeb3b;
+}
+.settings-box .settings-container .option-box .colors-list li:last-child {
+    background-color: #f44336;
+}
+/* End Settings Box */
+/* Start Landing Page */
+.landing-page {
+    position: relative;
+    min-height: 100vh;
+    background-image: url(../imgs/landing_01.jpg);
+    background-size: cover;
+}
+.landing-page .overlay {
+    background-color: rgb(0 0 0 / 80%);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+.landing-page .header-area {
+    position: relative;
+    z-index: 2;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+.landing-page .header-area .logo {
+    width: 300px;
+    padding: 15px;
+    font-weight: 800;
+    font-size: 25px;
+}
+.landing-page .header-area .links {
+    list-style: none;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 20px;
+    text-align: right;
+}
+.landing-page .header-area .links li {
+    display: inline-block;
+    margin-left: 30px;
+}
+.landing-page .header-area .links li a {
+    text-decoration: none;
+    color: white;
+    transition: var(--main-transition);
+    -webkit-transition: var(--main-transition);
+    -moz-transition: var(--main-transition);
+    -ms-transition: var(--main-transition);
+    -o-transition: var(--main-transition);
+}
+.landing-page .header-area .links li a:hover,
+.landing-page .header-area .links li a.active {
+    color: var(--main-color);
+}
+.landing-page .introduction-text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 2;
+    color: white;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+}
+.landing-page .introduction-text h1 {
+    font-size: 35px;
+    margin: 0 0 12px;
+}
+.landing-page .introduction-text h1 span {
+    color: var(--main-color);
+}
+.landing-page .introduction-text p {
+    line-height: 1.5;
+    font-size: 18px;
+    margin: auto;
+    width: 85%;
+}
+/* End Landing Page */

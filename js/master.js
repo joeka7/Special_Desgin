@@ -12,8 +12,30 @@ colorsLi.forEach(li => {
     li.addEventListener("click", function(e) {
         // Set Color On Root
         document.documentElement.style.setProperty("--main-color", e.target.dataset.color);
+        // Set Color In Local Storage
+        localStorage.setItem("color-option", e.target.dataset.color);
+        // Remove Class Active From Colors Option
+        e.target.parentElement.querySelectorAll(".active").forEach(element => {
+            element.classList.remove("active");
+        });
+        // Add Class Active When He Target
+        e.target.classList.add("active");
     });
 });
+
+// Check If There's Color in Local Storage
+let mainColors = localStorage.getItem("color-option");
+if (mainColors !== null) {
+    document.documentElement.style.setProperty("--main-color", mainColors);
+    // Remove Class Active From All Colors List
+    document.querySelectorAll(".colors-list li").forEach(element => {
+        element.classList.remove("active");
+        // Add Class Active On Element With Data-color === Local Storage Item
+        if (element.dataset.color === mainColors) {
+            element.classList.add("active");
+        };
+    });
+};
 
 // Select Landing Page Element
 let landingPage = document.querySelector(".landing-page");

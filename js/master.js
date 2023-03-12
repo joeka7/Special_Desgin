@@ -1,3 +1,20 @@
+// Select All Links
+const allLinks = document.querySelectorAll(".links a");
+// Select All Bullets
+const allBullets = document.querySelectorAll(".nav-bullets .bullet");
+function scrollToSection(elements) {
+    elements.forEach(ele => {
+        ele.addEventListener("click", (e) => {
+            e.preventDefault();
+            document.querySelector(e.target.dataset.section).scrollIntoView({
+                behavior: "smooth",
+            });
+        });
+    });
+};
+scrollToSection(allLinks);
+scrollToSection(allBullets);
+
 // Select Skills Selector
 let ourSkills = document.querySelector(".skills");
 window.onscroll = function() {

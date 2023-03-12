@@ -4,7 +4,7 @@ document.querySelector(".toggle-settings i").onclick = function() {
     this.classList.toggle("fa-spin");
     // Toggle Class Open On Main Settings Box
     document.querySelector(".settings-box").classList.toggle("open");
-}
+};
 
 // Switch Color
 const colorsLi = document.querySelectorAll(".colors-list li");
@@ -41,6 +41,8 @@ if (mainColors !== null) {
 let backgroundOption = true;
 // Variable To Control The Background Interval
 let backgroundInterval;
+// Check If There's Local Storage Random Background Item
+let backgroundLocStorage = localStorage.getItem("background-option");
 
 // Switch Random Background
 const randomBackgrEl = document.querySelectorAll(".random-background span");
@@ -66,21 +68,17 @@ randomBackgrEl.forEach(span => {
     });
 });
 
-// Check If There's Local Storage Random Background Item
-let backgroundLocStorage = localStorage.getItem("background-option");
+// Check If Random Background Local Storage Is Not Empty
 if (backgroundLocStorage !== null) {
-    if (backgroundLocStorage === "true") {
-        backgroundOption = true;
-    } else {
-        backgroundOption = false;
-    };
     // Remove Active Class From All Spans
     document.querySelectorAll(".random-background span").forEach(element => {
         element.classList.remove("active");
     });
-    if (backgroundLocStorage === "yes") {
+    if (backgroundLocStorage === "true") {
+        backgroundOption = true;
         document.querySelector(".random-background .yes").classList.add("active");
     } else {
+        backgroundOption = false;
         document.querySelector(".random-background .no").classList.add("active");
     };
 };

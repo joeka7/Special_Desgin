@@ -37,11 +37,10 @@ body {
 }
 .settings-box .toggle-settings {
     position: absolute;
-    right: 0;
     top: 100px;
     background-color: #000000f5;
     text-align: center;
-    right: -30px;
+    right: -31px;
     cursor: pointer;
     border: 1px solid #2c2c2cad;
     border-left: none;
@@ -52,7 +51,7 @@ body {
     color: white;
 }
 .settings-box .settings-container .option-box {
-    padding: 15px 0 8px;
+    padding: 15px 0 10px;
     text-align: center;
     background-color: black;
     border: 1px solid #121212;
@@ -67,7 +66,9 @@ body {
     margin: 0;
     color: white;
     font-weight: 400;
-    font-size: 15px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
 }
 .settings-box .settings-container .option-box .colors-list {
     list-style: none;
@@ -104,13 +105,13 @@ body {
     background-color: #009688;
 }
 .settings-box .settings-container .option-box .colors-list li:nth-child(4) {
-    background-color: #ffeb3b;
+    background-color: #8bc34a;
 }
 .settings-box .settings-container .option-box .colors-list li:last-child {
     background-color: #f44336;
 }
 .settings-box .settings-container .option-box .random-background {
-    margin: 5px 0 7px;
+    margin: 8px 0 0;
 }
 .settings-box .settings-container .option-box .random-background .yes,
 .settings-box .settings-container .option-box .random-background .no {
@@ -124,6 +125,8 @@ body {
     font-weight: bold;
     opacity: 0.5;
     cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     border-radius: 4px;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
@@ -241,7 +244,7 @@ body {
 }
 .landing-page .header-area .links li {
     display: inline-block;
-    margin-left: 30px;
+    margin-left: 25px;
 }
 .landing-page .header-area .links li a {
     text-decoration: none;

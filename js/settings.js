@@ -14,12 +14,7 @@ colorsLi.forEach(li => {
         document.documentElement.style.setProperty("--main-color", e.target.dataset.color);
         // Set Color In Local Storage
         localStorage.setItem("color-option", e.target.dataset.color);
-        // Remove Class Active From Colors Option
-        e.target.parentElement.querySelectorAll(".active").forEach(element => {
-            element.classList.remove("active");
-        });
-        // Add Class Active When He Target
-        e.target.classList.add("active");
+        handleActive(e);
     });
 });
 
@@ -39,22 +34,21 @@ if (mainColors !== null) {
 
 // Random Background Option
 let backgroundOption = true;
+// Show Bullets Option
+let BulletsOption = true;
 // Variable To Control The Background Interval
 let backgroundInterval;
 // Check If There's Local Storage Random Background Item
 let backgroundLocStorage = localStorage.getItem("background-option");
+// Check If There's Local Storage Bullets Option
+let bulletsLocStorage = localStorage.getItem("bullets-option");
 
 // Switch Random Background
 const randomBackgrEl = document.querySelectorAll(".random-background span");
 // Loop On All Spans
 randomBackgrEl.forEach(span => {
     span.addEventListener("click", function(e) {
-        // Remove Class Active From All Spans
-        e.target.parentElement.querySelectorAll(".active").forEach(element => {
-            element.classList.remove("active")
-        });
-        // Add Class Active When He Target
-        e.target.classList.add("active");
+        handleActive(e);
         // Stop Random Imgs Or Continue
         if (e.target.dataset.background === "yes") {
             backgroundOption = true;
@@ -99,3 +93,61 @@ function randomizeImgs() {
     }
 };
 randomizeImgs();
+
+// Select If User Want The Bullets Or Not
+const showBullets = document.querySelectorAll(".option-box .show-bullets span");
+showBullets.forEach(span => {
+    span.addEventListener("click", (e) => {
+        handleActive(e);
+        // Stop Random Imgs Or Continue
+        if (e.target.dataset.bullets === "yes") {
+            BulletsOption = true;
+            localStorage.setItem("bullets-option", true);
+            document.querySelectorAll(".nav-bullets .bullet").forEach(bullet => {
+                bullet.classList.toggle("show");
+                bullet.classList.remove("remove");
+            });
+        } else {
+            BulletsOption = false;
+            clearInterval(backgroundInterval);
+            localStorage.setItem("bullets-option", false);
+            document.querySelectorAll(".nav-bullets .bullet").forEach(bullet => {
+                bullet.classList.toggle("remove");
+                bullet.classList.remove("show");
+            });
+        };
+    });
+});
+
+// Check If Bullets In Local Storage Is Not Empty
+if (bulletsLocStorage !== null) {
+    // Remove Active Class From All Spans
+    document.querySelectorAll(".show-bullets span").forEach(element => {
+        element.classList.remove("active");
+    });
+    if (bulletsLocStorage === "true") {
+        BulletsOption = true;
+        document.querySelector(".show-bullets .yes").classList.add("active");
+        document.querySelectorAll(".nav-bullets .bullet").forEach(bullet => {
+            bullet.classList.toggle("show");
+            bullet.classList.remove("remove");
+        });
+    } else {
+        BulletsOption = false;
+        document.querySelector(".show-bullets .no").classList.add("active");
+        document.querySelectorAll(".nav-bullets .bullet").forEach(bullet => {
+            bullet.classList.toggle("remove");
+            bullet.classList.remove("show");
+        });
+    };
+};
+
+// Handle Active State
+function handleActive(ev) {
+    // Remove Class Active From All Childrens
+    ev.target.parentElement.querySelectorAll(".active").forEach(element => {
+        element.classList.remove("active");
+    });
+    // Add Class Active When He Target
+    ev.target.classList.add("active");
+};

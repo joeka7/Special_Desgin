@@ -68,13 +68,14 @@ body {
     font-weight: 400;
     font-size: 14px;
     text-transform: uppercase;
-    letter-spacing: 3px;
+    letter-spacing: 2.5px;
+    line-height: 19px;
 }
 .settings-box .settings-container .option-box .colors-list {
     list-style: none;
     text-align: center;
     padding: 0;
-    margin: 15px 0 10px;
+    margin: 15px 0 0;
 }
 .settings-box .settings-container .option-box .colors-list li {
     display: inline-block;
@@ -111,10 +112,10 @@ body {
     background-color: #f44336;
 }
 .settings-box .settings-container .option-box .random-background {
-    margin: 8px 0 0;
+    margin: 5px 0 0;
 }
-.settings-box .settings-container .option-box .random-background .yes,
-.settings-box .settings-container .option-box .random-background .no {
+.settings-box .settings-container .option-box .yes,
+.settings-box .settings-container .option-box .no {
     width: 50px;
     background-color: #333;
     color: white;
@@ -133,16 +134,19 @@ body {
     -ms-border-radius: 4px;
     -o-border-radius: 4px;
 }
-.settings-box .settings-container .option-box .random-background .yes {
+.settings-box .settings-container .option-box .yes {
     background-color: var(--main-color);
     margin-right: 3px;
 }
-.settings-box .settings-container .option-box .random-background .no {
+.settings-box .settings-container .option-box .no {
     background-color: var(--main-color);
     margin-left: 3px;
 }
-.settings-box .settings-container .option-box .random-background span.active {
+.settings-box .settings-container .option-box span.active {
     opacity: 1;
+}
+.settings-box .settings-container .option-box .show-bullets {
+    margin: 5px 0 0;
 }
 /* End Settings Box */
 /* Start Nav Bullets */
@@ -170,6 +174,12 @@ body {
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
+}
+.nav-bullets .bullet.remove {
+    display: none;
+}
+.nav-bullets .bullet.show {
+    display: block;
 }
 .nav-bullets .bullet .tooltip {
     background-color: var(--main-color);

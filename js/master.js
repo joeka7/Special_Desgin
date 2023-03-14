@@ -15,9 +15,35 @@ function scrollToSection(elements) {
 scrollToSection(allLinks);
 scrollToSection(allBullets);
 
+// Toggle Menu
+let toggleBtn = document.querySelector(".toggle-menu");
+let toggleLinks = document.querySelector(".links");
+toggleBtn.onclick = function (e) {
+    // Stop Propagation
+    e.stopPropagation();
+    this.classList.toggle("menu-active");
+    toggleLinks.classList.toggle("open");
+};
+
+let toggleLinksA = document.querySelector(".links li a");
+// Click Anywhere Outside Menu And Toggle Button
+document.addEventListener("click", (e) => {
+    if (e.target !== toggleBtn && e.target !== toggleLinks && e.target !== toggleLinksA) {
+        if (toggleLinks.classList.contains("open")) {
+            toggleBtn.classList.toggle("menu-active");
+            toggleLinks.classList.toggle("open");
+        };
+    };
+});
+
+// Stop Propaganda On Menu
+toggleLinks.onclick = function (e) {
+    e.stopPropagation();
+};
+
 // Select Skills Selector
 let ourSkills = document.querySelector(".skills");
-window.onscroll = function() {
+window.onscroll = function () {
     // Skills Offset Top
     let skillsOfSetTop = ourSkills.offsetTop;
     // Skills Outer Height

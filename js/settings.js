@@ -138,3 +138,10 @@ document.querySelector(".reset-option").onclick = function() {
     localStorage.removeItem("bullets-option");
     window.location.reload();
 };
+
+// Click Anywhere Outside Settings menu
+document.addEventListener("click", (e) => {
+    if (e.target !== document.querySelector(".settings-box")) {
+        console.log("Not")
+    }
+});

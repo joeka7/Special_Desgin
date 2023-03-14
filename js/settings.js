@@ -1,3 +1,13 @@
+// Handle Active State
+function handleActive(ev) {
+    // Remove Class Active From All Childrens
+    ev.target.parentElement.querySelectorAll(".active").forEach(element => {
+        element.classList.remove("active");
+    });
+    // Add Class Active When He Target
+    ev.target.classList.add("active");
+};
+
 // Click On Setting Icon
 document.querySelector(".toggle-settings i").onclick = function() {
     // Toggle Class Fa-spin For Rotation On self
@@ -34,14 +44,10 @@ if (mainColors !== null) {
 
 // Random Background Option
 let backgroundOption = true;
-// Show Bullets Option
-let BulletsOption = true;
 // Variable To Control The Background Interval
 let backgroundInterval;
 // Check If There's Local Storage Random Background Item
 let backgroundLocStorage = localStorage.getItem("background-option");
-// Check If There's Local Storage Bullets Option
-let bulletsLocStorage = localStorage.getItem("bullets-option");
 
 // Switch Random Background
 const randomBackgrEl = document.querySelectorAll(".random-background span");
@@ -96,58 +102,39 @@ randomizeImgs();
 
 // Select If User Want The Bullets Or Not
 const showBullets = document.querySelectorAll(".option-box .show-bullets span");
+let bulletsContainer = document.querySelector(".nav-bullets");
 showBullets.forEach(span => {
     span.addEventListener("click", (e) => {
-        handleActive(e);
-        // Stop Random Imgs Or Continue
-        if (e.target.dataset.bullets === "yes") {
-            BulletsOption = true;
-            localStorage.setItem("bullets-option", true);
-            document.querySelectorAll(".nav-bullets .bullet").forEach(bullet => {
-                bullet.classList.toggle("show");
-                bullet.classList.remove("remove");
-            });
+        if (span.dataset.bullets === "yes") {
+            bulletsContainer.style.display = "block";
+            localStorage.setItem("bullets-option", "block");
         } else {
-            BulletsOption = false;
-            clearInterval(backgroundInterval);
-            localStorage.setItem("bullets-option", false);
-            document.querySelectorAll(".nav-bullets .bullet").forEach(bullet => {
-                bullet.classList.toggle("remove");
-                bullet.classList.remove("show");
-            });
+            bulletsContainer.style.display = "none";
+            localStorage.setItem("bullets-option", "none");
         };
+        handleActive(e);
     });
 });
 
-// Check If Bullets In Local Storage Is Not Empty
-if (bulletsLocStorage !== null) {
-    // Remove Active Class From All Spans
-    document.querySelectorAll(".show-bullets span").forEach(element => {
-        element.classList.remove("active");
+// Bullets Option In Local Storage
+let bulletsLocalStorage = localStorage.getItem("bullets-option");
+if (bulletsLocalStorage !== null) {
+    showBullets.forEach(span => {
+        span.classList.remove("active");
     });
-    if (bulletsLocStorage === "true") {
-        BulletsOption = true;
+    if (bulletsLocalStorage === "block") {
+        bulletsContainer.style.display = "block";
         document.querySelector(".show-bullets .yes").classList.add("active");
-        document.querySelectorAll(".nav-bullets .bullet").forEach(bullet => {
-            bullet.classList.toggle("show");
-            bullet.classList.remove("remove");
-        });
     } else {
-        BulletsOption = false;
+        bulletsContainer.style.display = "none";
         document.querySelector(".show-bullets .no").classList.add("active");
-        document.querySelectorAll(".nav-bullets .bullet").forEach(bullet => {
-            bullet.classList.toggle("remove");
-            bullet.classList.remove("show");
-        });
     };
 };
 
-// Handle Active State
-function handleActive(ev) {
-    // Remove Class Active From All Childrens
-    ev.target.parentElement.querySelectorAll(".active").forEach(element => {
-        element.classList.remove("active");
-    });
-    // Add Class Active When He Target
-    ev.target.classList.add("active");
+// Reset Button
+document.querySelector(".reset-option").onclick = function() {
+    localStorage.removeItem("color-option");
+    localStorage.removeItem("background-option");
+    localStorage.removeItem("bullets-option");
+    window.location.reload();
 };

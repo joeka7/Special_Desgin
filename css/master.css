@@ -262,7 +262,7 @@ body {
 }
 @media (max-width: 991px) {
     .landing-page .header-area {
-        padding: 20px;
+        padding: 20px 5px;
     }
 }
 .landing-page .header-area .logo {
@@ -334,7 +334,7 @@ body {
         padding: 10px;
     }
 }
-@media (min-width: 300px) and (max-width: 767px) {
+@media (max-width: 767px) {
     .landing-page .header-area .links {
         display: none;
     }
@@ -444,7 +444,7 @@ body {
         font-size: 32px;
     }
 }
-@media (min-width: 300px) and (max-width: 767px) {
+@media (max-width: 767px) {
     .landing-page .introduction-text h1 {
         font-size: 25px;
     }
@@ -469,7 +469,7 @@ body {
         width: 50%;
     }
 }
-@media (min-width: 300px) and (max-width: 767px) {
+@media (max-width: 767px) {
     .landing-page .introduction-text p {
         font-size: 14px;
     }
@@ -477,15 +477,25 @@ body {
 /* End Landing Page */
 /* Start About Us */
 .about-us {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 60px;
+    padding-bottom: 60px;
     display: flex;
-    justify-content: center;
     align-items: center;
+}
+@media (max-width: 767px) {
+    .about-us {
+        display: block;
+        text-align: center;
+    }
 }
 .about-us .info-box {
     flex: 1;
     padding: 30px;
+}
+@media (max-width: 767px) {
+    .about-us .info-box {
+        padding: 0;
+    }
 }
 .about-us .info-box h2 {
     font-weight: bold;
@@ -494,7 +504,6 @@ body {
     margin: 0 0 10px;
 }
 .about-us .info-box p {
-    width: 500px;
     line-height: 1.8;
     color: #767676;
     margin: 0;
@@ -504,7 +513,7 @@ body {
     text-align: center;
 }
 .about-us .image-box img {
-    width: 350px;
+    max-width: 100%;
 }
 /* End About Us */
 /* Start Skills */
@@ -527,11 +536,22 @@ body {
     padding: 15px;
     margin-bottom: 15px;
 }
+@media (max-width: 767px) {
+    .skills .skill-box {
+        display: block;
+    }
+}
 .skills .skill-box .skill-name {
     width: 150px;
     font-weight: bold;
     text-align: center;
     padding: 10px 15px;
+}
+@media (max-width: 767px) {
+    .skills .skill-box .skill-name {
+        width: 100%;
+        margin-bottom: 10px;
+    }
 }
 .skills .skill-box .skill-progress {
     position: relative;

@@ -140,8 +140,14 @@ document.querySelector(".reset-option").onclick = function() {
 };
 
 // Click Anywhere Outside Settings menu
+const settingsBox = document.querySelector(".settings-box");
 document.addEventListener("click", (e) => {
-    if (e.target !== document.querySelector(".settings-box")) {
-        console.log("Not")
-    }
+    if (e.target !== settingsBox) {
+        if (settingsBox.classList.contains("open")) {
+            settingsBox.classList.toggle("open");
+        };
+    };
 });
+settingsBox.onclick = function(e) {
+    e.stopPropagation();
+};

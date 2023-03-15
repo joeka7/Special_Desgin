@@ -25,15 +25,24 @@ toggleBtn.onclick = function (e) {
     toggleLinks.classList.toggle("open");
 };
 
-let toggleLinksA = document.querySelector(".links li a");
 // Click Anywhere Outside Menu And Toggle Button
 document.addEventListener("click", (e) => {
-    if (e.target !== toggleBtn && e.target !== toggleLinks && e.target !== toggleLinksA) {
+    if (e.target !== toggleBtn && e.target !== toggleLinks) {
         if (toggleLinks.classList.contains("open")) {
             toggleBtn.classList.toggle("menu-active");
             toggleLinks.classList.toggle("open");
         };
     };
+});
+
+let toggleLinksA = document.querySelectorAll(".links li a");
+toggleLinksA.forEach(link => {
+    link.addEventListener("click", () => {
+        if (toggleLinks.classList.contains("open")) {
+            toggleBtn.classList.toggle("menu-active");
+            toggleLinks.classList.toggle("open");
+        };
+    })
 });
 
 // Stop Propaganda On Menu

@@ -67,6 +67,17 @@ window.onscroll = function () {
             skill.style.width = skill.dataset.progress;
         });
     };
+    let bulletsContainer = document.querySelector(".bullets-container");
+    if (window.scrollY >= 600) {
+        bulletsContainer.style.display = "block";
+    } else {
+        bulletsContainer.style.display = "none";
+    };
+};
+
+window.onload = function() {
+    let bulletsContainer = document.querySelector(".bullets-container");
+    bulletsContainer.style.display = "none"
 };
 
 // Create Popup With The Image
